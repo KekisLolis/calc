@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Globalization;
-using System.Text.RegularExpressions;
 
 public class Scrpt : MonoBehaviour
 {
