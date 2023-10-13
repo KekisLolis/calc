@@ -5281,7 +5281,6 @@ MonoBehaviour:
   clearButton: {fileID: 1345650360}
   resButton: {fileID: 1144715553}
   backButton: {fileID: 266041469}
-  percentButton: {fileID: 989855315}
 --- !u!4 &1508830563
 Transform:
   m_ObjectHideFlags: 0

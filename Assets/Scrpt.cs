@@ -97,4 +97,5 @@ public class Scrpt : MonoBehaviour
     { 
         result.text += number;
     }
+    
 }
