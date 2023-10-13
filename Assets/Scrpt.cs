@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 public class Scrpt : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Scrpt : MonoBehaviour
     private float _firstNumber;
     private float _secondNumber;
     private string _action = "";
-
+    
     private void Start()
     {
         plusButton.onClick.AddListener(OnSumClick);
@@ -97,5 +98,4 @@ public class Scrpt : MonoBehaviour
     { 
         result.text += number;
     }
-    
 }
