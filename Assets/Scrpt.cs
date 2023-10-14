@@ -105,4 +105,17 @@ public class Scrpt : MonoBehaviour
     { 
         result.text += number;
     }
+    
+    public void CalculateFactorial()
+    {
+        float inputValue = float.Parse(result.text); // Получаем введенное число
+
+        float factorial = 1;
+        for (float i = 1; i <= inputValue; i++)
+        {
+            factorial *= i;
+        }
+        
+        result.text = (factorial).ToString(CultureInfo.GetCultureInfo("en-EN"));
+    }
 }
