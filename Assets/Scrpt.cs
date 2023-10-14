@@ -119,7 +119,7 @@ public class Scrpt : MonoBehaviour
         result.text = (percent).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
     
-    public void Exp()
+    public void Degree() // пока не работает
     {
         float value = float.Parse(result.text);
         float exponent = float.Parse(result.text);
@@ -134,5 +134,20 @@ public class Scrpt : MonoBehaviour
         float resultSqrt = Mathf.Sqrt(value);
         
         result.text = (resultSqrt).ToString(CultureInfo.GetCultureInfo("en-EN"));
+    }
+    
+    public void Pi()
+    {
+        float resultPi = Mathf.PI;
+        
+        result.text = (resultPi).ToString(CultureInfo.GetCultureInfo("en-EN"));
+    }
+    
+    public void Exp() // экспа работает только если прописать 1 перед нажатием
+    {
+        float value = float.Parse(result.text);
+        float resultExp = Mathf.Exp(value);
+        
+        result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
 }
