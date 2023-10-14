@@ -31,28 +31,28 @@ public class Scrpt : MonoBehaviour
 
     private void OnSumClick()
     {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
+        _firstNumber = ConvertF(result.text);
         result.text = "";
         _action = "+";
     }
 
     private void OnMinusClick()
     {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
+        _firstNumber = ConvertF(result.text);
         result.text = "";
         _action = "-";
     }
     
     private void OnMulClick()
     {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
+        _firstNumber = ConvertF(result.text);
         result.text = "";
         _action = "*";
     }
     
     private void OnDivClick()
     {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
+        _firstNumber = ConvertF(result.text);
         result.text = "";
         _action = "/";
     }
@@ -67,23 +67,23 @@ public class Scrpt : MonoBehaviour
 
     private void OnResultClick()
     { 
-        _secondNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
+        _secondNumber = ConvertF(result.text);
         switch (_action)
         {
             case "+":
-                result.text = (_firstNumber + _secondNumber).ToString(CultureInfo.GetCultureInfo("en-EN"));
+                result.text = ConvertS(_firstNumber + _secondNumber);
                 break;
             
             case "-":
-                result.text = (_firstNumber - _secondNumber).ToString(CultureInfo.GetCultureInfo("en-EN"));
+                result.text = ConvertS(_firstNumber - _secondNumber);
                 break;
             
             case "*":
-                result.text = (_firstNumber * _secondNumber).ToString(CultureInfo.GetCultureInfo("en-EN"));
+                result.text = ConvertS(_firstNumber * _secondNumber);
                 break;
             
             case "/":
-                result.text = (_firstNumber / _secondNumber).ToString(CultureInfo.GetCultureInfo("en-EN"));
+                result.text = ConvertS(_firstNumber / _secondNumber);
                 break;
         }
     }
@@ -108,7 +108,7 @@ public class Scrpt : MonoBehaviour
             factorial *= i;
         }
         
-        result.text = (factorial).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        result.text = ConvertS(factorial);
     }
     
     public void Percent()
@@ -116,7 +116,7 @@ public class Scrpt : MonoBehaviour
         float value = float.Parse(result.text);
         float percent = value / 100f;
         
-        result.text = (percent).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        result.text = ConvertS(percent);
     }
     
     public void Degree()
@@ -124,7 +124,7 @@ public class Scrpt : MonoBehaviour
         float value = float.Parse(result.text);
         float resultPow = Mathf.Pow(value, 2f);
         
-        result.text = (resultPow).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        result.text = ConvertS(resultPow);
     }
     
     public void Sqrt()
@@ -132,7 +132,7 @@ public class Scrpt : MonoBehaviour
         float value = float.Parse(result.text);
         float resultSqrt = Mathf.Sqrt(value);
         
-        result.text = (resultSqrt).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        result.text = ConvertS(resultSqrt);
     }
     
     public void Pi()
@@ -140,21 +140,32 @@ public class Scrpt : MonoBehaviour
         float value = float.Parse(result.text);
         float resultPi = value * Mathf.PI;
         
-        result.text = (resultPi).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        result.text = ConvertS(resultPi);
     }
-    
+
     public void Exponent()
     {
         if (result.text == "")
         {
             float resultExp = Mathf.Exp(1f);
-            result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
+            result.text = ConvertS(resultExp);
         }
         else
         {
             float value = float.Parse(result.text);
             float resultExp = value * Mathf.Exp(1f);
-            result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
+            result.text = ConvertS(resultExp);
         }
     }
+
+    private static string ConvertS(float value)
+    {
+        return value.ToString(CultureInfo.GetCultureInfo("es-ES"));
+    }
+    
+    private static float ConvertF(string value)
+    {
+        return float.Parse(value, CultureInfo.GetCultureInfo("es-ES"));
+    }
+        
 }
