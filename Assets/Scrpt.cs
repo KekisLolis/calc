@@ -13,6 +13,7 @@ public class Scrpt : MonoBehaviour
     public Button clearButton;
     public Button resButton;
     public Button backButton;
+    public Button percentButton;
     
     private float _firstNumber;
     private float _secondNumber;
@@ -27,32 +28,33 @@ public class Scrpt : MonoBehaviour
         mulButton.onClick.AddListener(OnMulClick);
         divButton.onClick.AddListener(OnDivClick);
         backButton.onClick.AddListener(OnBackClick);
+        percentButton.onClick.AddListener(OnPercentClick);
     }
 
     private void OnSumClick()
     {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("es-ES"));
+        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
         result.text = "";
         _action = "+";
     }
 
     private void OnMinusClick()
     {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("es-ES"));
+        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
         result.text = "";
         _action = "-";
     }
     
     private void OnMulClick()
     {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("es-ES"));
+        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
         result.text = "";
         _action = "*";
     }
     
     private void OnDivClick()
     {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("es-ES"));
+        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
         result.text = "";
         _action = "/";
     }
@@ -64,26 +66,32 @@ public class Scrpt : MonoBehaviour
         _secondNumber = 0f;
         _action = "";
     }
+    
+    private void OnPercentClick()
+    {
+        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
+        result.text = (_firstNumber / 100f).ToString(CultureInfo.GetCultureInfo("en-EN"));
+    }
 
     private void OnResultClick()
     { 
-        _secondNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("es-ES"));
+        _secondNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
         switch (_action)
         {
             case "+":
-                result.text = (_firstNumber + _secondNumber).ToString(CultureInfo.GetCultureInfo("es-ES"));
+                result.text = (_firstNumber + _secondNumber).ToString(CultureInfo.GetCultureInfo("en-EN"));
                 break;
             
             case "-":
-                result.text = (_firstNumber - _secondNumber).ToString(CultureInfo.GetCultureInfo("es-ES"));
+                result.text = (_firstNumber - _secondNumber).ToString(CultureInfo.GetCultureInfo("en-EN"));
                 break;
             
             case "*":
-                result.text = (_firstNumber * _secondNumber).ToString(CultureInfo.GetCultureInfo("es-ES"));
+                result.text = (_firstNumber * _secondNumber).ToString(CultureInfo.GetCultureInfo("en-EN"));
                 break;
             
             case "/":
-                result.text = (_firstNumber / _secondNumber).ToString(CultureInfo.GetCultureInfo("es-ES"));
+                result.text = (_firstNumber / _secondNumber).ToString(CultureInfo.GetCultureInfo("en-EN"));
                 break;
         }
     }
