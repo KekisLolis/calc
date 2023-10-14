@@ -13,7 +13,6 @@ public class Scrpt : MonoBehaviour
     public Button clearButton;
     public Button resButton;
     public Button backButton;
-    public Button percentButton;
     
     private float _firstNumber;
     private float _secondNumber;
@@ -28,7 +27,6 @@ public class Scrpt : MonoBehaviour
         mulButton.onClick.AddListener(OnMulClick);
         divButton.onClick.AddListener(OnDivClick);
         backButton.onClick.AddListener(OnBackClick);
-        percentButton.onClick.AddListener(OnPercentClick);
     }
 
     private void OnSumClick()
@@ -65,12 +63,6 @@ public class Scrpt : MonoBehaviour
         _firstNumber = 0f;
         _secondNumber = 0f;
         _action = "";
-    }
-    
-    private void OnPercentClick()
-    {
-        _firstNumber = float.Parse(result.text, CultureInfo.GetCultureInfo("en-EN"));
-        result.text = (_firstNumber / 100f).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
 
     private void OnResultClick()
@@ -117,5 +109,22 @@ public class Scrpt : MonoBehaviour
         }
         
         result.text = (factorial).ToString(CultureInfo.GetCultureInfo("en-EN"));
+    }
+    
+    public void Percent()
+    {
+        float _inputValue = float.Parse(result.text);
+        float _percent = _inputValue / 100f;
+        
+        result.text = (_percent).ToString(CultureInfo.GetCultureInfo("en-EN"));
+    }
+    
+    public void Exp()
+    {
+        float _inputValue = float.Parse(result.text);
+        float _exponent = float.Parse(result.text);
+        float resultExp = Mathf.Pow(_inputValue, _exponent);
+        
+        result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
 }
