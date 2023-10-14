@@ -113,8 +113,8 @@ public class Scrpt : MonoBehaviour
     
     public void Percent()
     {
-        float inputValue = float.Parse(result.text);
-        float percent = inputValue / 100f;
+        float value = float.Parse(result.text);
+        float percent = value / 100f;
         
         result.text = (percent).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
@@ -126,5 +126,13 @@ public class Scrpt : MonoBehaviour
         float resultExp = Mathf.Pow(value, exponent);
         
         result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
+    }
+    
+    public void Sqrt()
+    {
+        float value = float.Parse(result.text);
+        float resultSqrt = Mathf.Sqrt(value);
+        
+        result.text = (resultSqrt).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
 }
