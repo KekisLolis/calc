@@ -108,7 +108,7 @@ public class Scrpt : MonoBehaviour
     
     public void CalculateFactorial()
     {
-        float inputValue = float.Parse(result.text); // Получаем введенное число
+        float inputValue = float.Parse(result.text);
 
         float factorial = 1;
         for (float i = 1; i <= inputValue; i++)
