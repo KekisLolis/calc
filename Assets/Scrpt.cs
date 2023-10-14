@@ -119,13 +119,12 @@ public class Scrpt : MonoBehaviour
         result.text = (percent).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
     
-    public void Degree() // пока не работает
+    public void Degree()
     {
         float value = float.Parse(result.text);
-        float exponent = float.Parse(result.text);
-        float resultExp = Mathf.Pow(value, exponent);
+        float resultPow = Mathf.Pow(value, 2f);
         
-        result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        result.text = (resultPow).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
     
     public void Sqrt()
@@ -138,16 +137,24 @@ public class Scrpt : MonoBehaviour
     
     public void Pi()
     {
-        float resultPi = Mathf.PI;
+        float value = float.Parse(result.text);
+        float resultPi = value * Mathf.PI;
         
         result.text = (resultPi).ToString(CultureInfo.GetCultureInfo("en-EN"));
     }
     
-    public void Exp() // экспа работает только если прописать 1 перед нажатием
+    public void Exponent()
     {
-        float value = float.Parse(result.text);
-        float resultExp = Mathf.Exp(value);
-        
-        result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        if (result.text == "")
+        {
+            float resultExp = Mathf.Exp(1f);
+            result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        }
+        else
+        {
+            float value = float.Parse(result.text);
+            float resultExp = value * Mathf.Exp(1f);
+            result.text = (resultExp).ToString(CultureInfo.GetCultureInfo("en-EN"));
+        }
     }
 }
