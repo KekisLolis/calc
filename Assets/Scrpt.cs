@@ -16,7 +16,12 @@ public class Scrpt : MonoBehaviour
     
     private float _firstNumber;
     private float _secondNumber;
-    private string _action = "";
+    private Action _action;
+
+    private enum Action
+    {
+        Plus, Minus, Mul, Div, None
+    }
     
     private void Start()
     {
@@ -33,28 +38,28 @@ public class Scrpt : MonoBehaviour
     {
         _firstNumber = ConvertF(result.text);
         result.text = "";
-        _action = "+";
+        _action = Action.Plus;
     }
 
     private void OnMinusClick()
     {
         _firstNumber = ConvertF(result.text);
         result.text = "";
-        _action = "-";
+        _action = Action.Minus;
     }
     
     private void OnMulClick()
     {
         _firstNumber = ConvertF(result.text);
         result.text = "";
-        _action = "*";
+        _action = Action.Mul;
     }
     
     private void OnDivClick()
     {
         _firstNumber = ConvertF(result.text);
         result.text = "";
-        _action = "/";
+        _action = Action.Div;
     }
 
     private void OnClearClick()
@@ -62,7 +67,7 @@ public class Scrpt : MonoBehaviour
         result.text = "";
         _firstNumber = 0f;
         _secondNumber = 0f;
-        _action = "";
+        _action = Action.None;
     }
 
     private void OnResultClick()
@@ -70,19 +75,16 @@ public class Scrpt : MonoBehaviour
         _secondNumber = ConvertF(result.text);
         switch (_action)
         {
-            case "+":
+            case Action.Plus:
                 result.text = ConvertS(_firstNumber + _secondNumber);
                 break;
-            
-            case "-":
+            case Action.Minus:
                 result.text = ConvertS(_firstNumber - _secondNumber);
                 break;
-            
-            case "*":
+            case Action.Mul:
                 result.text = ConvertS(_firstNumber * _secondNumber);
                 break;
-            
-            case "/":
+            case Action.Div:
                 result.text = ConvertS(_firstNumber / _secondNumber);
                 break;
         }
