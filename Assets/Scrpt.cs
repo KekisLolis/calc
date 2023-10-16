@@ -33,6 +33,7 @@ public class Scrpt : MonoBehaviour
     public Button clearButton;
     public Button resButton;
     public Button backButton;
+    public Button commaButton;
     
     private float _firstNumber;
     private float _secondNumber;
@@ -43,45 +44,58 @@ public class Scrpt : MonoBehaviour
         Plus, Minus, Mul, Div, None
     }
     
+    private void OnActionButtonClick(Action action)
+    {
+        _firstNumber = ConvertF(result.text);
+        result.text = "";
+        _action = action;
+    }
+
+    private void Update()
+    {
+        if (result.text.Contains(","))
+        {
+            commaButton.interactable = false;
+        }
+        else
+        {
+            commaButton.interactable = true;
+        }
+        
+        if (result.text.Contains("Infinito"))
+        {
+            result.text = result.text.Replace("Infinito", "Infinity");
+        }
+    }
+
     private void Start()
     {
-        plusButton.onClick.AddListener(OnSumClick);
+        plusButton.onClick.AddListener(() =>
+        {
+            OnActionButtonClick(Action.Plus);
+        });
+        
+        minusButton.onClick.AddListener(() =>
+        {
+            OnActionButtonClick(Action.Minus);
+        });
+        
+        mulButton.onClick.AddListener(() =>
+        {
+            OnActionButtonClick(Action.Mul);
+        });
+        
+        divButton.onClick.AddListener(() =>
+        {
+            OnActionButtonClick(Action.Div);
+        })
+            ;
+        backButton.onClick.AddListener(OnBackClick);
         clearButton.onClick.AddListener(OnClearClick);
         resButton.onClick.AddListener(OnResultClick);
-        minusButton.onClick.AddListener(OnMinusClick);
-        mulButton.onClick.AddListener(OnMulClick);
-        divButton.onClick.AddListener(OnDivClick);
-        backButton.onClick.AddListener(OnBackClick);
-    }
-
-    private void OnSumClick()
-    {
-        _firstNumber = ConvertF(result.text);
-        result.text = "";
-        _action = Action.Plus;
-    }
-
-    private void OnMinusClick()
-    {
-        _firstNumber = ConvertF(result.text);
-        result.text = "";
-        _action = Action.Minus;
+        commaButton.onClick.AddListener(OnCommaClick);
     }
     
-    private void OnMulClick()
-    {
-        _firstNumber = ConvertF(result.text);
-        result.text = "";
-        _action = Action.Mul;
-    }
-    
-    private void OnDivClick()
-    {
-        _firstNumber = ConvertF(result.text);
-        result.text = "";
-        _action = Action.Div;
-    }
-
     private void OnClearClick()
     {
         result.text = "";
@@ -118,6 +132,13 @@ public class Scrpt : MonoBehaviour
     public void OnNumberClick(string number)
     { 
         result.text += number;
+    }
+    
+    private void OnCommaClick()
+    {
+        {
+            result.text += ",";
+        }
     }
     
     public void CalculateFactorial()
