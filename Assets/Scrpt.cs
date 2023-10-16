@@ -43,13 +43,6 @@ public class Scrpt : MonoBehaviour
     {
         Plus, Minus, Mul, Div, None
     }
-    
-    private void OnActionButtonClick(Action action)
-    {
-        _firstNumber = ConvertF(result.text);
-        result.text = "";
-        _action = action;
-    }
 
     private void Update()
     {
@@ -68,6 +61,13 @@ public class Scrpt : MonoBehaviour
         }
     }
 
+    private void OnActionButtonClick(Action action)
+    {
+        _firstNumber = ConvertF(result.text);
+        result.text = "";
+        _action = action;
+    }
+    
     private void Start()
     {
         plusButton.onClick.AddListener(() =>
