@@ -169,5 +169,4 @@ public class Scrpt : MonoBehaviour
     {
         return float.Parse(value, CultureInfo.GetCultureInfo("es-ES"));
     }
-        
 }
