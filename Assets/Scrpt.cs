@@ -5,24 +5,13 @@ using System.Globalization;
 
 public class Scrpt : MonoBehaviour
 {
-    public Canvas canvas1;
-    public Canvas canvas2;
-    public bool isCanvas1Active = true;
+    public GameObject canvas1;
+    public GameObject canvas2;
     
     public void SwitchCanvas()
     {
-        if (isCanvas1Active)
-        {
-            canvas1.gameObject.SetActive(false);
-            canvas2.gameObject.SetActive(true);
-            isCanvas1Active = false;
-        }
-        else
-        {
-            canvas1.gameObject.SetActive(true);
-            canvas2.gameObject.SetActive(false);
-            isCanvas1Active = true;
-        }
+        canvas1.SetActive(!canvas1.activeSelf);
+        canvas2.SetActive(!canvas2.activeSelf);
     }
     
     public TMP_InputField result;
