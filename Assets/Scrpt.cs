@@ -139,10 +139,17 @@ public class Scrpt : MonoBehaviour
     
     public void Pi()
     {
-        float value = float.Parse(result.text);
-        float resultPi = value * Mathf.PI;
-        
-        result.text = ConvertS(resultPi);
+        if (result.text == "")
+        {
+            float resultPi = Mathf.PI;
+            result.text = ConvertS(resultPi);
+        }
+        else
+        {
+            float value = float.Parse(result.text);
+            float resultPi = value * Mathf.PI;
+            result.text = ConvertS(resultPi);
+        }
     }
 
     public void Exponent()
