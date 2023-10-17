@@ -35,15 +35,8 @@ public class Scrpt : MonoBehaviour
 
     private void Update()
     {
-        if (result.text.Contains(","))
-        {
-            commaButton.interactable = false;
-        }
-        else
-        {
-            commaButton.interactable = true;
-        }
-        
+        commaButton.interactable = !result.text.Contains(",");
+
         if (result.text.Contains("Infinito"))
         {
             result.text = result.text.Replace("Infinito", "Infinity");
@@ -119,7 +112,16 @@ public class Scrpt : MonoBehaviour
     }
     
     public void OnNumberClick(string number)
-    { 
+    {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+        
         result.text += number;
     }
     
