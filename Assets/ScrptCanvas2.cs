@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Globalization;
 
-public class Scrpt : MonoBehaviour
+public class ScrptCanvas2 : MonoBehaviour
 {
     public GameObject canvas1;
     public GameObject canvas2;
@@ -132,12 +132,71 @@ public class Scrpt : MonoBehaviour
         }
     }
     
+    public void CalculateFactorial()
+    {
+        float inputValue = float.Parse(result.text);
+
+        float factorial = 1;
+        for (float i = 1; i <= inputValue; i++)
+        {
+            factorial *= i;
+        }
+        
+        result.text = ConvertS(factorial);
+    }
+    
     public void Percent()
     {
         float value = float.Parse(result.text);
         float percent = value / 100f;
         
         result.text = ConvertS(percent);
+    }
+    
+    public void Degree()
+    {
+        float value = float.Parse(result.text);
+        float resultPow = Mathf.Pow(value, 2f);
+        
+        result.text = ConvertS(resultPow);
+    }
+    
+    public void Sqrt()
+    {
+        float value = float.Parse(result.text);
+        float resultSqrt = Mathf.Sqrt(value);
+        
+        result.text = ConvertS(resultSqrt);
+    }
+    
+    public void Pi()
+    {
+        if (result.text == "")
+        {
+            float resultPi = Mathf.PI;
+            result.text = ConvertS(resultPi);
+        }
+        else
+        {
+            float value = float.Parse(result.text);
+            float resultPi = value * Mathf.PI;
+            result.text = ConvertS(resultPi);
+        }
+    }
+
+    public void Exponent()
+    {
+        if (result.text == "")
+        {
+            float resultExp = Mathf.Exp(1f);
+            result.text = ConvertS(resultExp);
+        }
+        else
+        {
+            float value = float.Parse(result.text);
+            float resultExp = value * Mathf.Exp(1f);
+            result.text = ConvertS(resultExp);
+        }
     }
 
     private static string ConvertS(float value)
