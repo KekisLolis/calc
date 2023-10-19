@@ -77,7 +77,7 @@ public class Scrpt : MonoBehaviour
         resButton.onClick.AddListener(OnResultClick);
         commaButton.onClick.AddListener(OnCommaClick);
     }
-    
+
     private void OnClearClick()
     {
         result.text = "";
