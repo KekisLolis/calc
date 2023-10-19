@@ -108,6 +108,15 @@ public class Scrpt : MonoBehaviour
     
     private void OnBackClick()
     {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+        
         result.text = result.text.Substring(0, result.text.Length - 1);
     }
     
@@ -127,6 +136,21 @@ public class Scrpt : MonoBehaviour
     
     private void OnCommaClick()
     {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+        
+        if (result.text == "")
+        {
+            result.text += "0,";
+        }
+        
+        else
         {
             result.text += ",";
         }

@@ -5,15 +5,6 @@ using System.Globalization;
 
 public class ScrptCanvas2 : MonoBehaviour
 {
-    public GameObject canvas1;
-    public GameObject canvas2;
-    
-    public void SwitchCanvas()
-    {
-        canvas1.SetActive(!canvas1.activeSelf);
-        canvas2.SetActive(!canvas2.activeSelf);
-    }
-    
     public TMP_InputField result;
     public Button plusButton;
     public Button minusButton;
@@ -108,10 +99,19 @@ public class ScrptCanvas2 : MonoBehaviour
     
     private void OnBackClick()
     {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+        
         result.text = result.text.Substring(0, result.text.Length - 1);
     }
     
-    public void OnNumberClick(string number)
+    private void OnCommaClick()
     {
         if (result.text.Contains("Infinity"))
         {
@@ -122,11 +122,12 @@ public class ScrptCanvas2 : MonoBehaviour
             OnClearClick();
         }
         
-        result.text += number;
-    }
-    
-    private void OnCommaClick()
-    {
+        if (result.text == "")
+        {
+            result.text += "0,";
+        }
+        
+        else
         {
             result.text += ",";
         }
@@ -171,6 +172,15 @@ public class ScrptCanvas2 : MonoBehaviour
     
     public void Pi()
     {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+        
         if (result.text == "")
         {
             float resultPi = Mathf.PI;
@@ -186,6 +196,15 @@ public class ScrptCanvas2 : MonoBehaviour
 
     public void Exponent()
     {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+        
         if (result.text == "")
         {
             float resultExp = Mathf.Exp(1f);
