@@ -6,6 +6,7 @@ using System.Globalization;
 public class ScrptCanvas2 : MonoBehaviour
 {
     public TMP_InputField result;
+    public TMP_InputField info;
     public Button plusButton;
     public Button minusButton;
     public Button mulButton;
@@ -72,6 +73,7 @@ public class ScrptCanvas2 : MonoBehaviour
     private void OnClearClick()
     {
         result.text = "";
+        info.text = "";
         _firstNumber = 0f;
         _secondNumber = 0f;
         _action = Action.None;
@@ -126,7 +128,6 @@ public class ScrptCanvas2 : MonoBehaviour
         {
             result.text += "0,";
         }
-        
         else
         {
             result.text += ",";
