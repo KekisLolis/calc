@@ -243,6 +243,7 @@ public class ScrptCanvas2 : MonoBehaviour
             float resultSin = Mathf.Sin(value);
             result.text = ConvertS(resultSin);
         }
+  
     }
 
     public void Cos()
@@ -251,7 +252,6 @@ public class ScrptCanvas2 : MonoBehaviour
         {
             OnClearClick();
         }
-
         if (result.text.Contains("NaN"))
         {
             OnClearClick();
@@ -267,6 +267,31 @@ public class ScrptCanvas2 : MonoBehaviour
             float value = float.Parse(result.text);
             float resultCos = Mathf.Cos(value);
             result.text = ConvertS(resultCos);
+        }
+    }
+
+    public void Tan()
+    {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+
+        if (result.text == "")
+        {
+            float resultTan = Mathf.Tan(0);
+            result.text = ConvertS(resultTan);
+        }
+        else
+        {
+            float value = float.Parse(result.text);
+            float resultTan = Mathf.Tan(value);
+            result.text = ConvertS(resultTan);
         }
     }
 
