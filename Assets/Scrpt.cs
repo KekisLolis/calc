@@ -59,6 +59,10 @@ public class Scrpt : MonoBehaviour
         
         minusButton.onClick.AddListener(() =>
         {
+            if (result.text == "")
+            {
+                result.text = "-";
+            }
             OnActionButtonClick(Action.Minus);
         });
         

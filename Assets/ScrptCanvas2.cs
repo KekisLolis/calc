@@ -50,6 +50,10 @@ public class ScrptCanvas2 : MonoBehaviour
         
         minusButton.onClick.AddListener(() =>
         {
+            if (result.text == "")
+            {
+                result.text = "-";
+            }
             OnActionButtonClick(Action.Minus);
         });
         
