@@ -220,6 +220,55 @@ public class ScrptCanvas2 : MonoBehaviour
             result.text = ConvertS(resultExp);
         }
     }
+    
+    public void Sin()
+    {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+
+        if (result.text == "")
+        {
+            float resultSin = Mathf.Sin(0);
+            result.text = ConvertS(resultSin);
+        }
+        else
+        {
+            float value = float.Parse(result.text);
+            float resultSin = Mathf.Sin(value);
+            result.text = ConvertS(resultSin);
+        }
+    }
+
+    public void Cos()
+    {
+        if (result.text.Contains("Infinity"))
+        {
+            OnClearClick();
+        }
+
+        if (result.text.Contains("NaN"))
+        {
+            OnClearClick();
+        }
+
+        if (result.text == "")
+        {
+            float resultCos = Mathf.Cos(0);
+            result.text = ConvertS(resultCos);
+        }
+        else
+        {
+            float value = float.Parse(result.text);
+            float resultCos = Mathf.Cos(value);
+            result.text = ConvertS(resultCos);
+        }
+    }
 
     private static string ConvertS(float value)
     {
