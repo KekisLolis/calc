@@ -6,7 +6,6 @@ using System.Globalization;
 public class ScrptCanvas2 : MonoBehaviour
 {
     public TMP_InputField result;
-    public TMP_InputField info;
     public Button plusButton;
     public Button minusButton;
     public Button mulButton;
@@ -32,15 +31,6 @@ public class ScrptCanvas2 : MonoBehaviour
         if (result.text.Contains("Infinito"))
         {
             result.text = result.text.Replace("Infinito", "Infinity");
-        }
-        
-        if (result.text.Contains("NaN"))
-        {
-            info.text = "";
-        }
-        if (result.text.Contains("Infinity"))
-        {
-            info.text = "";
         }
     }
 
@@ -82,7 +72,6 @@ public class ScrptCanvas2 : MonoBehaviour
     private void OnClearClick()
     {
         result.text = "";
-        info.text = "";
         _firstNumber = 0f;
         _secondNumber = 0f;
         _action = Action.None;

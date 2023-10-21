@@ -15,7 +15,6 @@ public class Scrpt : MonoBehaviour
     }
     
     public TMP_InputField result;
-    public TMP_InputField info;
     public Button plusButton;
     public Button minusButton;
     public Button mulButton;
@@ -41,15 +40,6 @@ public class Scrpt : MonoBehaviour
         if (result.text.Contains("Infinito"))
         {
             result.text = result.text.Replace("Infinito", "Infinity");
-        }
-        
-        if (result.text.Contains("NaN"))
-        {
-            info.text = "";
-        }
-        if (result.text.Contains("Infinity"))
-        {
-            info.text = "";
         }
     }
 
@@ -80,8 +70,8 @@ public class Scrpt : MonoBehaviour
         divButton.onClick.AddListener(() =>
         {
             OnActionButtonClick(Action.Div);
-        })
-            ;
+        });
+        
         backButton.onClick.AddListener(OnBackClick);
         clearButton.onClick.AddListener(OnClearClick);
         resButton.onClick.AddListener(OnResultClick);
@@ -91,7 +81,6 @@ public class Scrpt : MonoBehaviour
     private void OnClearClick()
     {
         result.text = "";
-        info.text = "";
         _firstNumber = 0f;
         _secondNumber = 0f;
         _action = Action.None;
@@ -170,7 +159,6 @@ public class Scrpt : MonoBehaviour
     {
         float value = float.Parse(result.text);
         float percent = value / 100f;
-        
         result.text = ConvertS(percent);
     }
 
