@@ -33,6 +33,15 @@ public class ScrptCanvas2 : MonoBehaviour
         {
             result.text = result.text.Replace("Infinito", "Infinity");
         }
+        
+        if (result.text.Contains("NaN"))
+        {
+            info.text = "";
+        }
+        if (result.text.Contains("Infinity"))
+        {
+            info.text = "";
+        }
     }
 
     private void OnActionButtonClick(Action action)
