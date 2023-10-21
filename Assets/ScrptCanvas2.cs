@@ -24,6 +24,16 @@ public class ScrptCanvas2 : MonoBehaviour
         Plus, Minus, Mul, Div, None
     }
 
+    private bool _radians = true;
+    public void ToggleRadians()
+    {
+        _radians = true;
+    }
+    public void ToggleDegrees()
+    {
+        _radians = false;
+    }
+   
     private void Update()
     {
         commaButton.interactable = !result.text.Contains(",");
