@@ -63,7 +63,10 @@ public class Scrpt : MonoBehaviour
             {
                 result.text = "-";
             }
-            OnActionButtonClick(Action.Minus);
+            else
+            {
+                OnActionButtonClick(Action.Minus);
+            }
         });
         
         mulButton.onClick.AddListener(() =>

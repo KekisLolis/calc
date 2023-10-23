@@ -64,7 +64,10 @@ public class ScrptCanvas2 : MonoBehaviour
             {
                 result.text = "-";
             }
-            OnActionButtonClick(Action.Minus);
+            else
+            {
+                OnActionButtonClick(Action.Minus);
+            }
         });
         
         mulButton.onClick.AddListener(() =>
